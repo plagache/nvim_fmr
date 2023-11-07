@@ -10,7 +10,6 @@ LNECLR = "\\33[2K\\r"
 
 APPNAME=nvim_fmr
 
-
 all: run
 
 run:

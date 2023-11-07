@@ -7,11 +7,6 @@ LUNAR="https://github.com/LunarVim/LunarVim"
 DEFAULT="https://gitlab.com/plgch/neovim_config"
 NAMES=("AstroNvim: an" "NvChad: nv" "LazyVim: lz" "LunarVim: lv" "plagache: pl")
 
-if [${SELECTED} != ""]; then
-	git clone $SELECTED config
-    exit
-fi
-
 for i in "${NAMES[@]}"
 do
 	echo "$i"
