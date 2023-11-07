@@ -21,5 +21,5 @@ Additionnal dependecies :
 you can use this command to directly install my config:
 
 ```
-git clone https://github.com/plgch/nvim_fmr && cd nvim_fmr && make install
+git clone https://github.com/plagache/nvim_fmr && cd nvim_fmr && make install
 ```
