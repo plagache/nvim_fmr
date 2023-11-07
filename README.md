@@ -8,9 +8,7 @@
 Minimal requirements :
 
 ```
-git
-curl
-make
+git curl make
 ```
 
 Additionnal dependecies :
