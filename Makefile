@@ -17,7 +17,7 @@ run:
 
 install: clean
 	./install_neovim.sh
-	./choose-config.sh
+	./choose_config.sh
 	mkdir -p ~/.config/$(APPNAME)
 	[ -d config ] && cp -r -t ~/.config/$(APPNAME) config/* || cp init.lua ~/.config/$(APPNAME)/init.lua
 	printf "$(LNECLR)\n$(GREEN)[ $(PURPLE)make install $(GREEN)] was a success$(WHITE)\n\n"
