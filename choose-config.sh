@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ASTRO="https://github.com/AstroNvim/AstroNvim"
+KICKSTART="https://github.com/nvim-lua/kickstart.nvim"
 CHAD="https://github.com/NvChad/NvChad"
 LAZY="https://github.com/LazyVim/LazyVim"
 LUNAR="https://github.com/LunarVim/LunarVim"
@@ -21,6 +22,11 @@ case $CONFIG in
 	an)
 		printf "config $ASTRO found\n"
 		SELECTED=$ASTRO
+		;;
+
+	ks)
+		printf "config $KICKSTART found\n"
+		SELECTED=$KICKSTART
 		;;
 
 	nv)
