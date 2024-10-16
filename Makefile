@@ -16,8 +16,8 @@ run:
 	[ -f ./nvim-linux64/bin/nvim ] && NVIM_APPNAME=$(APPNAME) ./nvim-linux64/bin/nvim && printf "$(LNECLR)$(RED)\nDon't forget to [ $(PURPLE)make clean$(RED) ] when you are done !$(WHITE)\n\n" || printf "$(LNECLR)\nYou need to run [ $(PURPLE)make install$(WHITE) ]\n\n"
 
 install: clean
-	./install_neovim.sh
-	./choose_config.sh
+	./install_neovim
+	./choose_config
 	mkdir -p ~/.config/$(APPNAME)
 	[ -d config ] && cp -r -t ~/.config/$(APPNAME) config/* || cp init.lua ~/.config/$(APPNAME)/init.lua
 	printf "$(LNECLR)\n$(GREEN)[ $(PURPLE)make install $(GREEN)] was a success$(WHITE)\n\n"
