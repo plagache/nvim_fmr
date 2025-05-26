@@ -10,7 +10,6 @@ Minimal requirements :
 ```
 git
 curl
-make
 ```
 
 Additionnal dependecies :
@@ -27,33 +26,18 @@ Additionnal dependecies :
 
 ### Neovim
 
-you can choose/replace the neovim version you want in the [install_neovim.sh](install_neovim.sh) script by changing the URL variable.
+you can choose/replace the neovim version you want in the [install_neovim](install_neovim) script by changing the URL variable.
 Just put the URL version you would like last.
 
 ### Config
 
-you can add your own config in the [choose_config.sh](choose_config.sh) script.
+you can add your own config in the [setup file](nvim_fmr_setup) script.
 
 you can then use this command to directly install your config:
 ```
-git clone https://github.com/plagache/nvim_fmr && cd nvim_fmr && make install
+git clone https://github.com/plagache/nvim_fmr && cd nvim_fmr && source nvim_fmr_setup
 ```
 
 ## Usage
 
-### Correction
-
-```
-git clone https://github.com/plagache/nvim_fmr
-cd nvim_fmr
-make install
-make run
-```
-
-if you have the plugin terminal you can git clone the project within nvim_fmr and cd into it.
-
-Do not forget to clean the computer of the person you are correcting with:
-
-```
-make clean
-```
+The script will display the alias it created

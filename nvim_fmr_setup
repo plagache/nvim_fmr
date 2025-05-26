@@ -1,0 +1,69 @@
+#!/bin/sh
+
+BASE=$(readlink -f "$0" | xargs dirname)
+APPBIN=$BASE/nvim-linux-x86_64/bin/nvim
+
+# Ensure neovim is install
+[ ! -f "$APPBIN" ] && printf "neovim not installed\nInstalling" && ./install_neovim || printf "neovim is already installed locally.\n"
+
+KICKSTART="https://github.com/nvim-lua/kickstart.nvim"
+LAZY="https://github.com/LazyVim/LazyVim"
+DEFAULT="https://gitlab.com/plgch/neovim_config"
+
+set -- "kickstart.nvim: ks" "LazyVim: lz" "plagache: pl"
+for item in "$@"; do
+    printf "%s\n" "$item"
+done
+
+printf "Enter the short name of a config [xx]: "
+read -r CONFIG
+
+SELECTED=""
+
+case $CONFIG in
+	ks)
+		printf "config %s found\n" "$KICKSTART"
+		SELECTED=$KICKSTART
+		;;
+
+	lz)
+		printf "config %s found\n" "$LAZY"
+		SELECTED=$LAZY
+		;;
+
+	pl)
+		printf "config %s found\n" "$DEFAULT"
+		SELECTED=$DEFAULT
+		;;
+
+	*)
+		printf "no config found\n"
+		exit 0
+		;;
+esac
+
+CONFIG_NAME="${CONFIG}vim"
+NVIM_APPNAME="$CONFIG_NAME"
+
+XDG_CONFIG_HOME=".config"
+XDG_DATA_HOME=".local/share"        # Plugins, shada.
+XDG_STATE_HOME=".local/state"
+XDG_CACHE_HOME=".cache"             # State data (e.g., undo history)
+
+mkdir -p $XDG_CONFIG_HOME/"$NVIM_APPNAME"
+mkdir -p $XDG_DATA_HOME/"$NVIM_APPNAME"
+mkdir -p $XDG_STATE_HOME/"$NVIM_APPNAME"
+mkdir -p $XDG_CACHE_HOME/"$NVIM_APPNAME"
+
+# check if config is already installed and do not overwrite or redownload
+if [ ! -z "$SELECTED" -a "$SELECTED" != " " ]; then
+    rm -rf .config
+    git clone $SELECTED $XDG_CONFIG_HOME/"$CONFIG_NAME"
+
+fi
+
+alias "$CONFIG_NAME"='NVIM_APPNAME="$CONFIG_NAME" \
+XDG_DATA_HOME="$BASE/.local/share" \
+XDG_STATE_HOME="$BASE/.local/state" \
+XDG_CACHE_HOME="$BASE/.cache" \
+$APPBIN' && printf "%s has been alias to %s\n" "$CONFIG" "$CONFIG_NAME"
