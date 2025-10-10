@@ -10,7 +10,7 @@ KICKSTART="https://github.com/nvim-lua/kickstart.nvim"
 LAZY="https://github.com/LazyVim/LazyVim"
 DEFAULT="https://gitlab.com/plgch/neovim_config"
 
-set -- "kickstart.nvim: ks" "LazyVim: lz" "plagache: pl"
+set -- "kickstart.nvim: ks" "LazyVim: lz" "default: df"
 for item in "$@"; do
     printf "%s\n" "$item"
 done
@@ -31,7 +31,7 @@ case $CONFIG in
 		SELECTED=$LAZY
 		;;
 
-	pl)
+	df)
 		printf "config %s found\n" "$DEFAULT"
 		SELECTED=$DEFAULT
 		;;

@@ -2,7 +2,7 @@
 
 **nvim_fmr** is a tool to setup a neovim along with its config with minimal requirement.
 
-This tool takes advantage of the [NVIM_APPNAME](https://neovim.io/doc/user/starting.html#%24NVIM_APPNAME) feature.
+This tool also takes advantage of the [NVIM_APPNAME](https://neovim.io/doc/user/starting.html#%24NVIM_APPNAME) feature.
 
 ## Requirements
 
