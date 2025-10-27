@@ -1,10 +1,10 @@
 #!/bin/sh
 
 BASE=$(readlink -f "$0" | xargs dirname)
-APPBIN=$BASE/nvim-linux-x86_64/bin/nvim
+APPBIN=$BASE/nvim/bin/nvim
 
 # Ensure neovim is install
-[ ! -f "$APPBIN" ] && printf "neovim not installed\nInstalling" && ./install_neovim || printf "neovim is already installed locally.\n"
+[ ! -f "$APPBIN" ] && printf "neovim not installed\nInstalling" && ./install_nvim || printf "neovim is already installed locally.\n"
 
 KICKSTART="https://github.com/nvim-lua/kickstart.nvim"
 LAZY="https://github.com/LazyVim/LazyVim"
