@@ -1,6 +1,6 @@
 #!/bin/sh
 
-BASE=$(readlink -f "$0" | xargs dirname)
+BASE=$(cd -- "$(dirname -- "$0")" && pwd)
 APPBIN=$BASE/nvim/bin/nvim
 
 # Ensure neovim is install
